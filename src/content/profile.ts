@@ -10,6 +10,6 @@ export const profile: SiteProfile = {
   email: "hello@ryanidnani.example",
   links: [
     { label: "GitHub", href: "https://github.com/ryanidnani" },
-    { label: "Scholar", href: "https://scholar.google.com/citations?user=&hl=en" },
+    { label: "Scholar", href: "https://scholar.google.com/scholar?q=Ryan+Idnani" },
   ],
 };
