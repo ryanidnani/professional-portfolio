@@ -5,11 +5,11 @@ export const profile: SiteProfile = {
   shortBio:
     "Work in science and technology spanning publications, peer review, and selected personal projects.",
   longBio:
-    "This site collects a short public record: publications, peer reviews (published acknowledgments and confidential reviewing), and personal projects. Sample entries are placeholders until real items are supplied.",
+    "This site collects a short public record: publications, peer reviews (published acknowledgments and confidential reviewing), and personal projects. Peer reviews and projects marked Sample are placeholders until real items are supplied.",
   location: undefined,
   email: "hello@ryanidnani.example",
   links: [
-    { label: "GitHub", href: "https://github.com/" },
-    { label: "Scholar", href: "https://scholar.google.com/" },
+    { label: "GitHub", href: "https://github.com/ryanidnani" },
+    { label: "Scholar", href: "https://scholar.google.com/citations?user=&hl=en" },
   ],
 };
