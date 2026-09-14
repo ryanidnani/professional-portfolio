@@ -1,12 +1,12 @@
 # Ryan Idnani — Portfolio
 
-A focused public portfolio for **Ryan Idnani**, covering three things only:
+A simple, professional public portfolio for **Ryan Idnani** (science / biotech / pharma tone), covering three things only:
 
 1. Publications
 2. Peer reviews (published and unpublished)
 3. Personal projects
 
-Placeholder entries are labeled **Sample** so the layout can be reviewed before real content is swapped in.
+Calm typography, muted palette, minimal chrome. Placeholder entries are labeled **Sample** so the layout can be reviewed before real content is swapped in.
 
 ## Stack
 

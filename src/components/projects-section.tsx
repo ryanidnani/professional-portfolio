@@ -5,67 +5,51 @@ export function ProjectsSection() {
   return (
     <section
       id="projects"
-      className="scroll-mt-24 border-t border-[var(--line)] px-5 py-20 md:px-8 md:py-28"
+      className="scroll-mt-16 border-t border-[var(--line)] px-5 py-14 sm:px-6 sm:py-16"
     >
-      <div className="mx-auto max-w-6xl">
-        <p className="section-kicker">Personal projects</p>
-        <h2 className="section-title mt-3 max-w-2xl">
-          Builds that prove the craft
-        </h2>
-        <p className="section-lede mt-4">
-          Small systems and tools outside formal publication—still meant to be
-          used.
+      <div className="mx-auto max-w-3xl">
+        <h2 className="section-title">Personal projects</h2>
+        <p className="section-lede mt-2">
+          Independent work outside formal publication.
         </p>
 
-        <ul className="mt-14 space-y-0">
-          {projects.map((project, index) => (
-            <li
-              key={project.id}
-              className="grid gap-6 border-t border-[var(--line)] py-10 last:border-b md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] md:gap-12"
-            >
-              <div>
-                <div className="flex flex-wrap items-center gap-3">
-                  <span className="font-[family-name:var(--font-display)] text-xs font-semibold tracking-[0.16em] text-[var(--ink-muted)] uppercase">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <time className="text-sm text-[var(--accent)] tabular-nums">
-                    {project.year}
-                  </time>
-                  {project.isSample ? <SampleBadge /> : null}
-                </div>
-                <h3 className="mt-3 font-[family-name:var(--font-display)] text-2xl font-semibold tracking-tight text-[var(--ink)] md:text-3xl">
-                  {project.name}
-                </h3>
-                <p className="mt-4 max-w-xl text-[0.95rem] leading-relaxed text-[var(--ink-soft)]">
-                  {project.blurb}
-                </p>
+        <ul className="mt-10 divide-y divide-[var(--line)] border-y border-[var(--line)]">
+          {projects.map((project) => (
+            <li key={project.id} className="py-7">
+              <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 text-sm text-[var(--ink-muted)]">
+                <time className="tabular-nums">{project.year}</time>
+                {project.isSample ? <SampleBadge /> : null}
               </div>
-              <div className="flex flex-col justify-between gap-6 md:items-end md:text-right">
-                <p className="text-sm text-[var(--ink-muted)]">
-                  {project.stack.join(" · ")}
-                </p>
-                <div className="flex flex-wrap gap-4 md:justify-end">
-                  {project.url ? (
-                    <a
-                      href={project.url}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-sm font-medium text-[var(--accent)] hover:opacity-80"
-                    >
-                      Live site
-                    </a>
-                  ) : null}
-                  {project.repoUrl ? (
-                    <a
-                      href={project.repoUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-sm font-medium text-[var(--ink)] hover:text-[var(--accent)]"
-                    >
-                      Repository
-                    </a>
-                  ) : null}
-                </div>
+              <h3 className="mt-2 font-[family-name:var(--font-serif)] text-lg font-semibold text-[var(--ink)]">
+                {project.name}
+              </h3>
+              <p className="mt-3 text-[0.925rem] leading-relaxed text-[var(--ink-soft)]">
+                {project.blurb}
+              </p>
+              <p className="mt-3 text-sm text-[var(--ink-muted)]">
+                {project.stack.join(" · ")}
+              </p>
+              <div className="mt-3 flex flex-wrap gap-4 text-sm">
+                {project.url ? (
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-[var(--link)] hover:underline"
+                  >
+                    Site
+                  </a>
+                ) : null}
+                {project.repoUrl ? (
+                  <a
+                    href={project.repoUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-[var(--link)] hover:underline"
+                  >
+                    Repository
+                  </a>
+                ) : null}
               </div>
             </li>
           ))}

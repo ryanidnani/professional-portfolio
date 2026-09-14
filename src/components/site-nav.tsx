@@ -14,7 +14,7 @@ export function SiteNav() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -23,37 +23,26 @@ export function SiteNav() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-[background,border-color,backdrop-filter] duration-300",
-        scrolled
-          ? "border-b border-[var(--line)] bg-[color-mix(in_oklab,var(--mist)_88%,transparent)] backdrop-blur-md"
-          : "border-b border-transparent bg-transparent",
+        "sticky top-0 z-50 border-b bg-[var(--paper)]/95 backdrop-blur-sm",
+        scrolled ? "border-[var(--line)]" : "border-transparent",
       )}
     >
-      <nav className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3.5 md:px-8">
+      <nav className="mx-auto flex max-w-3xl items-center justify-between gap-4 px-5 py-3.5 sm:px-6">
         <a
           href="#top"
-          className="font-[family-name:var(--font-display)] text-sm font-semibold tracking-tight text-[var(--ink)]"
+          className="font-[family-name:var(--font-serif)] text-[0.95rem] font-semibold text-[var(--ink)]"
         >
           Ryan Idnani
         </a>
-        <ul className="hidden items-center gap-6 text-sm text-[var(--ink-muted)] sm:flex">
+        <ul className="flex flex-wrap items-center justify-end gap-x-4 gap-y-1 text-[0.8125rem] text-[var(--ink-muted)]">
           {links.map((link) => (
             <li key={link.href}>
-              <a
-                href={link.href}
-                className="transition-colors hover:text-[var(--ink)]"
-              >
+              <a href={link.href} className="hover:text-[var(--ink)]">
                 {link.label}
               </a>
             </li>
           ))}
         </ul>
-        <a
-          href="mailto:hello@ryanidnani.example"
-          className="text-sm font-medium text-[var(--accent)] transition-opacity hover:opacity-80"
-        >
-          Email
-        </a>
       </nav>
     </header>
   );
