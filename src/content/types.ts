@@ -11,7 +11,8 @@ export type Publication = SampleFlag & {
   authors: string;
   summary: string;
   url?: string;
-  status: "published" | "preprint" | "in-review";
+  status: "published" | "preprint" | "in-review" | "abstract";
+  citedBy: number;
 };
 
 export type PeerReview = SampleFlag & {
