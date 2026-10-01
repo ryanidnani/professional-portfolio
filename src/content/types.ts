@@ -13,6 +13,7 @@ export type Publication = SampleFlag & {
   url?: string;
   status: "published" | "preprint" | "in-review" | "abstract";
   citedBy: number;
+  citedByUrl?: string;
 };
 
 export type PeerReview = SampleFlag & {
@@ -21,6 +22,8 @@ export type PeerReview = SampleFlag & {
   year: number;
   role: string;
   note: string;
+  /** Manuscript title when the review is tied to a specific article. */
+  manuscriptTitle?: string;
   /** Published acknowledgments vs confidential/unpublished reviewing. */
   visibility: "published" | "unpublished";
   acknowledgmentUrl?: string;

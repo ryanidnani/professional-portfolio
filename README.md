@@ -37,7 +37,7 @@ Edit the typed modules under `src/content/`:
 | File | Purpose |
 | --- | --- |
 | `profile.ts` | Name, bios, email, links |
-| `publications.ts` | Fallback list and DOI summaries (live list is fetched and sorted by citations) |
+| `publications.ts` | Fallback Scholar snapshot and known-work summaries (live list is fetched from Google Scholar) |
 | `peer-reviews.ts` | Published vs unpublished reviews |
 | `projects.ts` | Personal builds |
 

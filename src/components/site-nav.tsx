@@ -1,8 +1,3 @@
-"use client";
-
-import { useEffect, useState } from "react";
-import { cn } from "@/lib/utils";
-
 const links = [
   { href: "#about", label: "About" },
   { href: "#publications", label: "Publications" },
@@ -11,33 +6,25 @@ const links = [
 ];
 
 export function SiteNav() {
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
-    <header
-      className={cn(
-        "sticky top-0 z-50 border-b bg-[var(--paper)]/95 backdrop-blur-sm",
-        scrolled ? "border-[var(--line)]" : "border-transparent",
-      )}
-    >
-      <nav className="mx-auto flex max-w-3xl items-center justify-between gap-4 px-5 py-3.5 sm:px-6">
+    <header className="sticky top-0 z-50 border-b border-[var(--line)] bg-[var(--paper)]/90 backdrop-blur-sm">
+      <nav
+        aria-label="Primary"
+        className="mx-auto flex max-w-3xl flex-col gap-2 px-5 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-6 sm:py-3.5"
+      >
         <a
           href="#top"
-          className="font-[family-name:var(--font-serif)] text-[0.95rem] font-semibold text-[var(--ink)]"
+          className="font-[family-name:var(--font-serif)] text-[0.95rem] font-semibold text-[var(--ink)] focus-visible:outline-none focus-visible:underline"
         >
           Ryan Idnani
         </a>
-        <ul className="flex flex-wrap items-center justify-end gap-x-4 gap-y-1 text-[0.8125rem] text-[var(--ink-muted)]">
+        <ul className="flex flex-wrap items-center gap-x-4 gap-y-1 text-[0.8125rem] text-[var(--ink-muted)] sm:justify-end">
           {links.map((link) => (
             <li key={link.href}>
-              <a href={link.href} className="hover:text-[var(--ink)]">
+              <a
+                href={link.href}
+                className="hover:text-[var(--ink)] focus-visible:outline-none focus-visible:underline"
+              >
                 {link.label}
               </a>
             </li>

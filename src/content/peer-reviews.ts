@@ -6,42 +6,39 @@ import type { PeerReview } from "./types";
  */
 export const peerReviews: PeerReview[] = [
   {
-    id: "review-pub-sample-osdi",
-    venue: "Systems conference proceedings (sample acknowledgment)",
-    year: 2024,
-    role: "External reviewer",
-    note: "Sample published acknowledgment listed in the venue’s thank-you page.",
-    visibility: "published",
-    acknowledgmentUrl: "https://example.com/sample-ack-page",
-    isSample: true,
-  },
-  {
-    id: "review-pub-sample-journal",
-    venue: "Open-access methods journal (sample)",
-    year: 2025,
+    id: "review-pub-frontiers-decm-2026",
+    venue: "Frontiers in Bioengineering and Biotechnology",
+    year: 2026,
     role: "Peer reviewer",
-    note: "Sample entry for a review later acknowledged on the article page.",
+    manuscriptTitle:
+      "From biological scaffold to multifunctional bioplatform: research progress and applications of decellularized extracellular matrix",
+    note: "Reviewer listed on the published article.",
     visibility: "published",
-    acknowledgmentUrl: "https://example.com/sample-article-ack",
-    isSample: true,
+    acknowledgmentUrl:
+      "https://www.frontiersin.org/journals/bioengineering-and-biotechnology/articles/10.3389/fbioe.2026.1917527/full",
+    isSample: false,
   },
   {
-    id: "review-unpub-sample-workshop",
-    venue: "Research workshop program committee (sample)",
-    year: 2024,
-    role: "PC member",
-    note: "Sample unpublished reviewing: confidential cycle, no public acknowledgment yet.",
+    id: "review-unpub-frontiers-bioreactor-2026",
+    venue: "Frontiers in Bioengineering and Biotechnology",
+    year: 2026,
+    role: "Peer reviewer",
+    manuscriptTitle:
+      "Bioreactor Optimization through Coupled Fluid–Structure Interaction and Data-Driven Analysis",
+    note: "Manuscript reviewed; the article was not accepted for publication.",
     visibility: "unpublished",
-    isSample: true,
+    isSample: false,
   },
   {
-    id: "review-unpub-sample-journal",
-    venue: "Specialty journal (sample, confidential)",
-    year: 2025,
-    role: "Ad-hoc reviewer",
-    note: "Sample confidential review completed under standard double-blind rules.",
+    id: "review-unpub-results-hypoxia-chamber-2026",
+    venue: "Results in Engineering",
+    year: 2026,
+    role: "Peer reviewer",
+    manuscriptTitle:
+      "Design and Validation of an Open-Source Chamber for Controlled Intermittent Hypoxia in Rodents",
+    note: "Review completed; the manuscript has not yet been accepted.",
     visibility: "unpublished",
-    isSample: true,
+    isSample: false,
   },
 ];
 

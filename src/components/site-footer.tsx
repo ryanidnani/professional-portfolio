@@ -1,3 +1,4 @@
+import { TextLink } from "@/components/text-link";
 import { profile } from "@/content";
 
 export function SiteFooter() {
@@ -7,25 +8,14 @@ export function SiteFooter() {
         <p className="font-[family-name:var(--font-serif)] text-sm font-semibold text-[var(--ink)]">
           {profile.name}
         </p>
-        <div className="flex flex-wrap gap-4 text-sm text-[var(--ink-muted)]">
+        <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm">
           {profile.email ? (
-            <a
-              href={`mailto:${profile.email}`}
-              className="text-[var(--link)] hover:underline"
-            >
-              Email
-            </a>
+            <TextLink href={`mailto:${profile.email}`}>Email</TextLink>
           ) : null}
           {profile.links.map((link) => (
-            <a
-              key={link.href + link.label}
-              href={link.href}
-              target="_blank"
-              rel="noreferrer"
-              className="hover:text-[var(--ink)]"
-            >
+            <TextLink key={link.href + link.label} href={link.href}>
               {link.label}
-            </a>
+            </TextLink>
           ))}
         </div>
       </div>
