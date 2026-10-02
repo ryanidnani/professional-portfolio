@@ -1,4 +1,9 @@
-import { SampleBadge } from "@/components/sample-badge";
+import {
+  Entry,
+  EntryList,
+  EntryMeta,
+  EntryNote,
+} from "@/components/entry-list";
 import { Section } from "@/components/section";
 import { TextLink } from "@/components/text-link";
 import { profile } from "@/content";
@@ -18,45 +23,39 @@ function citationLabel(count: number): string {
 
 function PublicationList({ items }: { items: Publication[] }) {
   return (
-    <ul className="mt-10 divide-y divide-[var(--line)] border-y border-[var(--line)]">
-      {items.map((pub) => (
-        <li key={pub.id} className="py-7">
-          <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 text-sm text-[var(--ink-muted)]">
-            <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-              <time className="tabular-nums">{pub.year}</time>
-              <span aria-hidden="true">·</span>
-              <span>{statusLabel[pub.status]}</span>
-              {pub.isSample ? <SampleBadge /> : null}
-            </div>
-            {pub.citedBy > 0 ? (
-              <TextLink
-                href={pub.citedByUrl ?? scholarSearchUrl(pub.title)}
-                className="tabular-nums"
-              >
-                {citationLabel(pub.citedBy)}
-              </TextLink>
-            ) : null}
-          </div>
-          <h3 className="mt-2 font-[family-name:var(--font-serif)] text-lg font-semibold leading-snug text-[var(--ink)]">
-            {pub.url ? (
-              <TextLink href={pub.url}>{pub.title}</TextLink>
-            ) : (
-              pub.title
-            )}
-          </h3>
-          <p className="mt-2 text-sm text-[var(--ink-muted)]">
-            {pub.authors}
-            <br />
-            {pub.venue}
-          </p>
-          {pub.summary ? (
-            <p className="mt-3 text-[0.925rem] leading-relaxed text-[var(--ink-soft)]">
-              {pub.summary}
-            </p>
-          ) : null}
-        </li>
-      ))}
-    </ul>
+    <EntryList>
+      {items.map((pub) => {
+        const showStatus = pub.status !== "published" && pub.status !== "abstract";
+
+        return (
+          <Entry
+            key={pub.id}
+            year={pub.year}
+            title={pub.title}
+            href={pub.url}
+            isSample={pub.isSample}
+          >
+            <EntryMeta>{pub.authors}</EntryMeta>
+            <EntryMeta>
+              {pub.venue}
+              {showStatus ? ` · ${statusLabel[pub.status]}` : null}
+              {pub.citedBy > 0 ? (
+                <>
+                  {" · "}
+                  <TextLink
+                    href={pub.citedByUrl ?? scholarSearchUrl(pub.title)}
+                    className="tabular-nums"
+                  >
+                    {citationLabel(pub.citedBy)}
+                  </TextLink>
+                </>
+              ) : null}
+            </EntryMeta>
+            {pub.summary ? <EntryNote>{pub.summary}</EntryNote> : null}
+          </Entry>
+        );
+      })}
+    </EntryList>
   );
 }
 
@@ -70,18 +69,19 @@ export async function PublicationsSection() {
     <Section id="publications">
       <h2 className="section-title">Publications</h2>
       <p className="section-lede mt-2">
-        Ordered by citation count
         {scholarLink ? (
           <>
-            , as on <TextLink href={scholarLink.href}>Google Scholar</TextLink>
+            Ordered by citation count on{" "}
+            <TextLink href={scholarLink.href}>Google Scholar</TextLink>.
           </>
-        ) : null}
-        .
+        ) : (
+          "Ordered by citation count."
+        )}
       </p>
       <PublicationList items={papers} />
 
       {abstracts.length > 0 ? (
-        <div className="mt-14">
+        <div className="mt-12">
           <h3 className="section-label">Abstracts</h3>
           <PublicationList items={abstracts} />
         </div>

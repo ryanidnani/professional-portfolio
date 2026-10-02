@@ -17,7 +17,7 @@ const sourceSans = Source_Sans_3({
 });
 
 const description =
-  "Publications, peer reviews, and personal projects by Ryan Idnani.";
+  "In Vitro Associate Scientist II at AbbVie. Publications, peer review, and selected projects.";
 
 export const metadata: Metadata = {
   title: {

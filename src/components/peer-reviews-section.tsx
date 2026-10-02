@@ -1,11 +1,15 @@
-import { SampleBadge } from "@/components/sample-badge";
+import {
+  Entry,
+  EntryList,
+  EntryMeta,
+  EntryNote,
+} from "@/components/entry-list";
 import { Section } from "@/components/section";
-import { TextLink } from "@/components/text-link";
 import { peerReviews } from "@/content";
 
 const visibilityLabel = {
-  published: "Published",
-  unpublished: "Unpublished",
+  published: "Published acknowledgment",
+  unpublished: "Confidential review",
 } as const;
 
 export function PeerReviewsSection() {
@@ -16,35 +20,23 @@ export function PeerReviewsSection() {
         Published acknowledgments and confidential reviewing.
       </p>
 
-      <ul className="mt-10 divide-y divide-[var(--line)] border-y border-[var(--line)]">
+      <EntryList>
         {peerReviews.map((review) => (
-          <li key={review.id} className="py-7">
-            <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 text-sm text-[var(--ink-muted)]">
-              <time className="tabular-nums">{review.year}</time>
-              <span aria-hidden="true">·</span>
-              <span>{visibilityLabel[review.visibility]}</span>
-              {review.isSample ? <SampleBadge /> : null}
-            </div>
-            <h3 className="mt-2 font-[family-name:var(--font-serif)] text-lg font-semibold leading-snug text-[var(--ink)]">
-              {review.acknowledgmentUrl && review.manuscriptTitle ? (
-                <TextLink href={review.acknowledgmentUrl}>
-                  {review.manuscriptTitle}
-                </TextLink>
-              ) : (
-                (review.manuscriptTitle ?? review.venue)
-              )}
-            </h3>
-            <p className="mt-2 text-sm text-[var(--ink-muted)]">
-              {review.venue}
-              <br />
-              {review.role}
-            </p>
-            <p className="mt-3 text-[0.925rem] leading-relaxed text-[var(--ink-soft)]">
-              {review.note}
-            </p>
-          </li>
+          <Entry
+            key={review.id}
+            year={review.year}
+            title={review.manuscriptTitle ?? review.venue}
+            href={review.acknowledgmentUrl}
+            isSample={review.isSample}
+          >
+            <EntryMeta>
+              {review.venue} · {review.role} ·{" "}
+              {visibilityLabel[review.visibility]}
+            </EntryMeta>
+            <EntryNote>{review.note}</EntryNote>
+          </Entry>
         ))}
-      </ul>
+      </EntryList>
     </Section>
   );
 }
