@@ -1,5 +1,5 @@
 export { profile } from "./profile";
-export { fallbackPublications, publicationSummaries } from "./publications";
+export { fallbackPublications, knownPublicationLinks } from "./publications";
 export {
   peerReviews,
   publishedReviews,

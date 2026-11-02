@@ -1,9 +1,4 @@
-import {
-  Entry,
-  EntryList,
-  EntryMeta,
-  EntryNote,
-} from "@/components/entry-list";
+import { Entry, EntryList, EntryMeta } from "@/components/entry-list";
 import { Section } from "@/components/section";
 import { peerReviews } from "@/content";
 
@@ -16,9 +11,6 @@ export function PeerReviewsSection() {
   return (
     <Section id="peer-reviews">
       <h2 className="section-title">Peer reviews</h2>
-      <p className="section-lede mt-2">
-        Published acknowledgments and confidential reviewing.
-      </p>
 
       <EntryList>
         {peerReviews.map((review) => (
@@ -33,7 +25,6 @@ export function PeerReviewsSection() {
               {review.venue} · {review.role} ·{" "}
               {visibilityLabel[review.visibility]}
             </EntryMeta>
-            <EntryNote>{review.note}</EntryNote>
           </Entry>
         ))}
       </EntryList>

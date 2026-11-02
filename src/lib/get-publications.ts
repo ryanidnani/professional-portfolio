@@ -1,4 +1,4 @@
-import { fallbackPublications, publicationSummaries } from "@/content/publications";
+import { fallbackPublications, knownPublicationLinks } from "@/content/publications";
 import type { Publication } from "@/content/types";
 
 export const GOOGLE_SCHOLAR_USER_ID = "XKmKMLYAAAAJ";
@@ -53,10 +53,8 @@ function inferStatus(title: string, venue: string): Publication["status"] {
 
 function knownWork(title: string): { summary: string; url: string } | undefined {
   // Prefer the JITC abstract (starts with 1025) over the similarly titled AIChE paper.
-  const match = publicationSummaries.find((entry) => entry.match.test(title));
-  return match
-    ? { summary: match.summary, url: match.url }
-    : undefined;
+  const match = knownPublicationLinks.find((entry) => entry.match.test(title));
+  return match ? { summary: match.summary, url: match.url } : undefined;
 }
 
 function scholarCitationUrl(href: string): string {

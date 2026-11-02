@@ -41,11 +41,6 @@ export type PersonalProject = SampleFlag & {
 
 export type SiteProfile = {
   name: string;
-  roles: string[];
-  education: string;
-  shortBio: string;
-  longBio: string;
-  location?: string;
   email?: string;
   links: { label: string; href: string }[];
 };

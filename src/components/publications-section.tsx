@@ -1,12 +1,6 @@
-import {
-  Entry,
-  EntryList,
-  EntryMeta,
-  EntryNote,
-} from "@/components/entry-list";
+import { Entry, EntryList, EntryMeta, EntryNote } from "@/components/entry-list";
 import { Section } from "@/components/section";
 import { TextLink } from "@/components/text-link";
-import { profile } from "@/content";
 import type { Publication } from "@/content/types";
 import { getPublications, scholarSearchUrl } from "@/lib/get-publications";
 
@@ -63,21 +57,10 @@ export async function PublicationsSection() {
   const publications = await getPublications();
   const papers = publications.filter((pub) => pub.status !== "abstract");
   const abstracts = publications.filter((pub) => pub.status === "abstract");
-  const scholarLink = profile.links.find((link) => link.label === "Scholar");
 
   return (
     <Section id="publications">
       <h2 className="section-title">Publications</h2>
-      <p className="section-lede mt-2">
-        {scholarLink ? (
-          <>
-            Ordered by citation count on{" "}
-            <TextLink href={scholarLink.href}>Google Scholar</TextLink>.
-          </>
-        ) : (
-          "Ordered by citation count."
-        )}
-      </p>
       <PublicationList items={papers} />
 
       {abstracts.length > 0 ? (

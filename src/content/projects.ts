@@ -7,22 +7,12 @@ import type { PersonalProject } from "./types";
 export const projects: PersonalProject[] = [
   {
     id: "proj-kaiya-dashboard",
-    name: "Kaiya Dashboard",
+    name: "Kaiya Health Dashboard",
     year: 2026,
     blurb:
       "Personal health analytics platform that aggregates WHOOP, smart-scale, training, and nutrition data to surface trends and correlation insights for fitness, recovery, and body composition.",
     stack: ["Python", "Starlette", "JavaScript"],
     url: "https://health-data-production.up.railway.app",
-    isSample: false,
-  },
-  {
-    id: "proj-kalshi-polymarket-arb",
-    name: "Kalshi–Polymarket Arbitrage Scanner",
-    year: 2026,
-    blurb:
-      "Cross-exchange scanner that matches equivalent Kalshi and Polymarket markets and streams active arb opportunities on a live dashboard.",
-    stack: ["Python", "HTML"],
-    url: "http://34.232.65.155:8788",
     isSample: false,
   },
   {
@@ -51,7 +41,7 @@ export const projects: PersonalProject[] = [
     name: "Correlating Strikeouts and Hits with Success",
     year: 2022,
     blurb:
-      "Sports analytics study for the Sports Analytics Group at Berkeley on how strikeouts, hits, and extra-base-hit rate relate to team success in MLB.",
+      "Examines whether striking out less and collecting more hits helps baseball teams win.",
     stack: ["Sports analytics"],
     url: "https://sportsanalytics.berkeley.edu/articles/strikeouts-and-hits.html",
     isSample: false,
@@ -61,7 +51,7 @@ export const projects: PersonalProject[] = [
     name: "Is the Pull-Up Three Worth it?",
     year: 2022,
     blurb:
-      "Sports analytics study for the Sports Analytics Group at Berkeley on pull-up three-point efficiency versus catch-and-shoot threes among high-volume NBA shooters.",
+      "Evaluates whether pull-up threes are worth taking for basketball players who shoot a high volume of them.",
     stack: ["Sports analytics"],
     url: "https://sportsanalytics.berkeley.edu/articles/pull-up-three.html",
     isSample: false,

@@ -4,7 +4,7 @@ import type { Publication } from "./types";
  * Descriptions and canonical links for known works. The live list and
  * citation counts always come from Google Scholar.
  */
-export const publicationSummaries: { match: RegExp; summary: string; url: string }[] = [
+export const knownPublicationLinks: { match: RegExp; summary: string; url: string }[] = [
   {
     match: /inexpensive open.?source chamber/i,
     summary:
@@ -46,8 +46,8 @@ export const fallbackPublications: Publication[] = [
     venue: "Frontiers in Physiology",
     year: 2022,
     authors: "TC Hillman, R Idnani, CG Wilson",
-    summary: publicationSummaries[0].summary,
-    url: publicationSummaries[0].url,
+    summary: knownPublicationLinks[0].summary,
+    url: knownPublicationLinks[0].url,
     status: "published",
     citedBy: 13,
     citedByUrl:
@@ -61,8 +61,8 @@ export const fallbackPublications: Publication[] = [
     venue: "Bioprinting",
     year: 2025,
     authors: "R Idnani, S Khan",
-    summary: publicationSummaries[1].summary,
-    url: publicationSummaries[1].url,
+    summary: knownPublicationLinks[1].summary,
+    url: knownPublicationLinks[1].url,
     status: "published",
     citedBy: 4,
     isSample: false,
@@ -74,8 +74,8 @@ export const fallbackPublications: Publication[] = [
     venue: "ASAIO Journal",
     year: 2026,
     authors: "S Khan, R Idnani, AV Garcia",
-    summary: publicationSummaries[2].summary,
-    url: publicationSummaries[2].url,
+    summary: knownPublicationLinks[2].summary,
+    url: knownPublicationLinks[2].url,
     status: "published",
     citedBy: 0,
     isSample: false,
@@ -87,8 +87,8 @@ export const fallbackPublications: Publication[] = [
     venue: "Journal for ImmunoTherapy of Cancer",
     year: 2025,
     authors: "GM Shoemaker, J Kollings, KK Zhang, R Idnani, SR Shannon, ...",
-    summary: publicationSummaries[3].summary,
-    url: publicationSummaries[3].url,
+    summary: knownPublicationLinks[3].summary,
+    url: knownPublicationLinks[3].url,
     status: "abstract",
     citedBy: 0,
     isSample: false,
@@ -101,8 +101,8 @@ export const fallbackPublications: Publication[] = [
     year: 2025,
     authors:
       "G Shoemaker, J Kollings, R Idnani, L Xu, R Blanco-Sarmiento, K Zhang, ...",
-    summary: publicationSummaries[4].summary,
-    url: publicationSummaries[4].url,
+    summary: knownPublicationLinks[4].summary,
+    url: knownPublicationLinks[4].url,
     status: "abstract",
     citedBy: 0,
     isSample: false,

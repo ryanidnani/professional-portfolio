@@ -16,8 +16,7 @@ const sourceSans = Source_Sans_3({
   display: "swap",
 });
 
-const description =
-  "In Vitro Associate Scientist II at AbbVie. Publications, peer review, and selected projects.";
+const description = "Publications, peer reviews, and projects.";
 
 export const metadata: Metadata = {
   title: {
