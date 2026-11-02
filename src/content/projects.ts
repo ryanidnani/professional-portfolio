@@ -12,7 +12,7 @@ export const projects: PersonalProject[] = [
     blurb:
       "Personal health analytics platform that aggregates WHOOP, smart-scale, training, and nutrition data to surface trends and correlation insights for fitness, recovery, and body composition.",
     stack: ["Python", "Starlette", "JavaScript"],
-    url: "https://kaiya-health-dashboard.up.railway.app",
+    url: "https://kaiyahealth.app",
     isSample: false,
   },
   {
