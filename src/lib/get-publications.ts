@@ -4,9 +4,6 @@ import type { Publication } from "@/content/types";
 export const GOOGLE_SCHOLAR_USER_ID = "XKmKMLYAAAAJ";
 export const GOOGLE_SCHOLAR_PROFILE_URL = `https://scholar.google.com/citations?user=${GOOGLE_SCHOLAR_USER_ID}&hl=en`;
 
-/** Refresh Scholar papers and citation counts about once an hour. */
-const REVALIDATE_SECONDS = 60 * 60;
-
 const SCHOLAR_HEADERS = {
   Accept: "text/html,application/xhtml+xml",
   "Accept-Language": "en-US,en;q=0.9",
@@ -122,7 +119,6 @@ async function fetchScholarPage(start: number): Promise<string | null> {
   try {
     const response = await fetch(url, {
       headers: SCHOLAR_HEADERS,
-      next: { revalidate: REVALIDATE_SECONDS },
     });
     if (!response.ok) return null;
     return await response.text();
