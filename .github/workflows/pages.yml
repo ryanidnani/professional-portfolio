@@ -3,6 +3,9 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: ["main"]
+  schedule:
+    # 15:00 UTC, once a day. GitHub may start the job a few minutes late.
+    - cron: "0 15 * * *"
   workflow_dispatch:
 
 permissions:

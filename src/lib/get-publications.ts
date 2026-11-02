@@ -149,7 +149,9 @@ export async function getPublications(): Promise<Publication[]> {
   }
 
   if (collected.length === 0) {
+    console.warn("Google Scholar was unavailable. Using the saved publication list.");
     return sortLikeScholar(fallbackPublications);
   }
+  console.log(`Loaded ${collected.length} publications from Google Scholar.`);
   return sortLikeScholar(collected);
 }
