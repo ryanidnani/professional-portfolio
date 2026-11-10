@@ -11,7 +11,7 @@ export type Publication = SampleFlag & {
   authors: string;
   summary: string;
   url?: string;
-  status: "published" | "preprint" | "in-review" | "abstract";
+  status: "published" | "preprint" | "in-review" | "poster";
   citedBy: number;
   citedByUrl?: string;
 };

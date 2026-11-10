@@ -25,14 +25,12 @@ export const knownPublicationLinks: { match: RegExp; summary: string; url: strin
   },
   {
     match: /^1025\b/i,
-    summary:
-      "Conference abstract: PBAE nanoparticles deliver antigen-processing machinery genes to restore tumor immunogenicity.",
+    summary: "",
     url: "https://doi.org/10.1136/jitc-2025-sitc2025.1025",
   },
   {
     match: /^(?!1025\b).*structurally diverse pbae/i,
-    summary:
-      "Conference abstract at the 2025 AIChE Annual Meeting on PBAE nanoparticles for restoring tumor immunogenicity.",
+    summary: "",
     url: "https://aiche.confex.com/aiche/2025/meetingapp.cgi/Paper/713417",
   },
 ];
@@ -89,7 +87,7 @@ export const fallbackPublications: Publication[] = [
     authors: "GM Shoemaker, J Kollings, KK Zhang, R Idnani, SR Shannon, ...",
     summary: knownPublicationLinks[3].summary,
     url: knownPublicationLinks[3].url,
-    status: "abstract",
+    status: "poster",
     citedBy: 0,
     isSample: false,
   },
@@ -103,7 +101,7 @@ export const fallbackPublications: Publication[] = [
       "G Shoemaker, J Kollings, R Idnani, L Xu, R Blanco-Sarmiento, K Zhang, ...",
     summary: knownPublicationLinks[4].summary,
     url: knownPublicationLinks[4].url,
-    status: "abstract",
+    status: "poster",
     citedBy: 0,
     isSample: false,
   },

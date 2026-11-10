@@ -19,13 +19,13 @@ export const peerReviews: PeerReview[] = [
     isSample: false,
   },
   {
-    id: "review-unpub-frontiers-bioreactor-2026",
+    id: "review-unpub-frontiers-acellular-matrices-2026",
     venue: "Frontiers in Bioengineering and Biotechnology",
     year: 2026,
     role: "Peer reviewer",
     manuscriptTitle:
-      "Bioreactor Optimization through Coupled Fluid–Structure Interaction and Data-Driven Analysis",
-    note: "Manuscript reviewed; the article was not accepted for publication.",
+      "Engineering Functional Integration of Acellular Matrices in Irradiated Breast Reconstruction",
+    note: "Review completed; the manuscript has not yet been accepted.",
     visibility: "unpublished",
     isSample: false,
   },
@@ -37,6 +37,17 @@ export const peerReviews: PeerReview[] = [
     manuscriptTitle:
       "Design and Validation of an Open-Source Chamber for Controlled Intermittent Hypoxia in Rodents",
     note: "Review completed; the manuscript has not yet been accepted.",
+    visibility: "unpublished",
+    isSample: false,
+  },
+  {
+    id: "review-unpub-frontiers-bioreactor-2026",
+    venue: "Frontiers in Bioengineering and Biotechnology",
+    year: 2026,
+    role: "Peer reviewer",
+    manuscriptTitle:
+      "Bioreactor Optimization through Coupled Fluid–Structure Interaction and Data-Driven Analysis",
+    note: "Manuscript reviewed; the article was not accepted for publication.",
     visibility: "unpublished",
     isSample: false,
   },

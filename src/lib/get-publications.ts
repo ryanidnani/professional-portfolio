@@ -43,13 +43,13 @@ function inferStatus(title: string, venue: string): Publication["status"] {
       haystack,
     )
   ) {
-    return "abstract";
+    return "poster";
   }
   return "published";
 }
 
 function knownWork(title: string): { summary: string; url: string } | undefined {
-  // Prefer the JITC abstract (starts with 1025) over the similarly titled AIChE paper.
+  // Prefer the JITC poster (starts with 1025) over the similarly titled AIChE paper.
   const match = knownPublicationLinks.find((entry) => entry.match.test(title));
   return match ? { summary: match.summary, url: match.url } : undefined;
 }

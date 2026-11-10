@@ -16,6 +16,16 @@ export const projects: PersonalProject[] = [
     isSample: false,
   },
   {
+    id: "proj-ultimate-grid",
+    name: "Ultimate Grid",
+    year: 2026,
+    blurb:
+      "Full-stack sports trivia platform that expands Immaculate Grid into every team-by-team combination in the NFL, NBA, and MLB, with historical player databases and an optimizer that maximizes filled squares.",
+    stack: ["Python", "Flask", "JavaScript"],
+    url: "https://ultimategrid.app",
+    isSample: false,
+  },
+  {
     id: "proj-stock-predictions",
     name: "Stock Market Predictions Model",
     year: 2025,
@@ -24,16 +34,6 @@ export const projects: PersonalProject[] = [
     stack: ["Python", "LightGBM", "JavaScript"],
     url: "https://ryanidnani.github.io/StockMarketPredictionModel/",
     repoUrl: "https://github.com/ryanidnani/StockMarketPredictionModel",
-    isSample: false,
-  },
-  {
-    id: "proj-ultimate-grid",
-    name: "Ultimate Grid",
-    year: 2025,
-    blurb:
-      "Full-stack sports trivia platform that expands Immaculate Grid into every team-by-team combination in the NFL, NBA, and MLB, with historical player databases and an optimizer that maximizes filled squares.",
-    stack: ["Python", "Flask", "JavaScript"],
-    url: "https://ultimategrid.app",
     isSample: false,
   },
   {

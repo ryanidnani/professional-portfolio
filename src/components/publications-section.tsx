@@ -8,7 +8,7 @@ const statusLabel = {
   published: "Published",
   preprint: "Preprint",
   "in-review": "In review",
-  abstract: "Abstract",
+  poster: "Poster",
 } as const;
 
 function citationLabel(count: number): string {
@@ -19,7 +19,7 @@ function PublicationList({ items }: { items: Publication[] }) {
   return (
     <EntryList>
       {items.map((pub) => {
-        const showStatus = pub.status !== "published" && pub.status !== "abstract";
+        const showStatus = pub.status !== "published" && pub.status !== "poster";
 
         return (
           <Entry
@@ -45,7 +45,9 @@ function PublicationList({ items }: { items: Publication[] }) {
                 </>
               ) : null}
             </EntryMeta>
-            {pub.summary ? <EntryNote>{pub.summary}</EntryNote> : null}
+            {pub.summary && pub.status !== "poster" ? (
+              <EntryNote>{pub.summary}</EntryNote>
+            ) : null}
           </Entry>
         );
       })}
@@ -55,18 +57,24 @@ function PublicationList({ items }: { items: Publication[] }) {
 
 export async function PublicationsSection() {
   const publications = await getPublications();
-  const papers = publications.filter((pub) => pub.status !== "abstract");
-  const abstracts = publications.filter((pub) => pub.status === "abstract");
+  const papers = publications.filter((pub) => pub.status !== "poster");
+  const posters = publications.filter((pub) => pub.status === "poster");
 
   return (
     <Section id="publications">
       <h2 className="section-title">Publications</h2>
-      <PublicationList items={papers} />
 
-      {abstracts.length > 0 ? (
+      {papers.length > 0 ? (
+        <div className="mt-8">
+          <h3 className="section-label">Papers</h3>
+          <PublicationList items={papers} />
+        </div>
+      ) : null}
+
+      {posters.length > 0 ? (
         <div className="mt-12">
-          <h3 className="section-label">Abstracts</h3>
-          <PublicationList items={abstracts} />
+          <h3 className="section-label">Conference Abstracts</h3>
+          <PublicationList items={posters} />
         </div>
       ) : null}
     </Section>
