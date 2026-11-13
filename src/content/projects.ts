@@ -43,7 +43,8 @@ export const projects: PersonalProject[] = [
     blurb:
       "Examines whether striking out less and collecting more hits helps baseball teams win.",
     stack: ["Sports analytics"],
-    url: "https://sportsanalytics.berkeley.edu/articles/strikeouts-and-hits.html",
+    writeUpUrl:
+      "https://sportsanalytics.berkeley.edu/articles/strikeouts-and-hits.html",
     isSample: false,
   },
   {
@@ -53,7 +54,7 @@ export const projects: PersonalProject[] = [
     blurb:
       "Evaluates whether pull-up threes are worth taking for basketball players who shoot a high volume of them.",
     stack: ["Sports analytics"],
-    url: "https://sportsanalytics.berkeley.edu/articles/pull-up-three.html",
+    writeUpUrl: "https://sportsanalytics.berkeley.edu/articles/pull-up-three.html",
     isSample: false,
   },
 ];

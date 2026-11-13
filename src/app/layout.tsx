@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Source_Sans_3, Source_Serif_4 } from "next/font/google";
+import { profile } from "@/content";
 import "./globals.css";
 
 const sourceSerif = Source_Serif_4({
@@ -16,7 +17,7 @@ const sourceSans = Source_Sans_3({
   display: "swap",
 });
 
-const description = "Publications, peer reviews, and projects.";
+const description = profile.tagline;
 
 export const metadata: Metadata = {
   title: {

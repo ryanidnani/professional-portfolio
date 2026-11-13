@@ -1,12 +1,8 @@
 # Ryan Idnani — Portfolio
 
-A simple, professional public portfolio for **Ryan Idnani** (science / biotech / pharma tone), covering three things only:
+A curated public index for **Ryan Idnani**: selected publications, peer reviews, and self-directed projects in bioengineering, data, and computation.
 
-1. Publications
-2. Peer reviews (published and unpublished)
-3. Personal projects
-
-Calm typography, muted palette, minimal chrome. Placeholder entries are labeled **Sample** so the layout can be reviewed before real content is swapped in.
+Calm typography, muted palette, minimal chrome. It complements LinkedIn rather than repeating a résumé.
 
 ## Stack
 
@@ -36,12 +32,24 @@ Edit the typed modules under `src/content/`:
 
 | File | Purpose |
 | --- | --- |
-| `profile.ts` | Name, bios, email, links |
-| `publications.ts` | Fallback Scholar snapshot and known-work summaries (live list is fetched from Google Scholar) |
-| `peer-reviews.ts` | Published vs unpublished reviews |
-| `projects.ts` | Personal builds |
+| `profile.ts` | Name, tagline, and profile links |
+| `publications.ts` | Saved Scholar snapshot and known-work summaries. The live list is fetched from Google Scholar when the site is built, and the page notes that sync date. |
+| `peer-reviews.ts` | Acknowledged reviews, and confidential reviews counted by journal |
+| `projects.ts` | Personal builds, with separate live, source, and write-up links |
 
-Set `isSample: false` (or remove sample markers) once an entry is verified. Do not invent hard claims without that marker.
+### Peer reviews
+
+Unpublished manuscripts stay confidential. Record only the journal, year, and role. Do not add a manuscript title, an editorial decision, or a link. Add a title and acknowledgment link only after the journal has publicly named the reviewer.
+
+### Projects
+
+Set the link that matches the artifact, and leave the others unset:
+
+- `url` — live project
+- `repoUrl` — source code
+- `writeUpUrl` — detailed write-up
+
+`isSample: true` badges an entry that is not yet verified. Verified entries keep it `false`. Do not invent claims.
 
 ## Out of scope
 

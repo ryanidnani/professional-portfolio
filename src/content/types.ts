@@ -16,18 +16,25 @@ export type Publication = SampleFlag & {
   citedByUrl?: string;
 };
 
+/**
+ * Acknowledged reviews may name the article and link to the journal page.
+ * Confidential reviews keep only the journal, year, and role.
+ */
 export type PeerReview = SampleFlag & {
   id: string;
   venue: string;
   year: number;
   role: string;
-  note: string;
-  /** Manuscript title when the review is tied to a specific article. */
-  manuscriptTitle?: string;
-  /** Published acknowledgments vs confidential/unpublished reviewing. */
-  visibility: "published" | "unpublished";
-  acknowledgmentUrl?: string;
-};
+} & (
+    | {
+        visibility: "published";
+        manuscriptTitle: string;
+        acknowledgmentUrl: string;
+      }
+    | {
+        visibility: "unpublished";
+      }
+  );
 
 export type PersonalProject = SampleFlag & {
   id: string;
@@ -35,12 +42,17 @@ export type PersonalProject = SampleFlag & {
   year: number;
   blurb: string;
   stack: string[];
+  /** Deployed project. */
   url?: string;
+  /** Source repository. */
   repoUrl?: string;
+  /** Article or longer write-up. */
+  writeUpUrl?: string;
 };
 
 export type SiteProfile = {
   name: string;
+  tagline: string;
   email?: string;
   links: { label: string; href: string }[];
 };

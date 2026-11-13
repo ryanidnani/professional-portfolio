@@ -15,6 +15,15 @@ function citationLabel(count: number): string {
   return count === 1 ? "1 citation" : `${count} citations`;
 }
 
+function formatSyncedDate(iso: string): string {
+  return new Intl.DateTimeFormat("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+    timeZone: "UTC",
+  }).format(new Date(iso));
+}
+
 function PublicationList({ items }: { items: Publication[] }) {
   return (
     <EntryList>
@@ -56,13 +65,21 @@ function PublicationList({ items }: { items: Publication[] }) {
 }
 
 export async function PublicationsSection() {
-  const publications = await getPublications();
+  const { items: publications, source, syncedAt } = await getPublications();
   const papers = publications.filter((pub) => pub.status !== "poster");
   const posters = publications.filter((pub) => pub.status === "poster");
+  const syncedOn = formatSyncedDate(syncedAt);
+  const syncNote =
+    source === "google-scholar"
+      ? `Publication list synced from Google Scholar on ${syncedOn}.`
+      : `Showing the saved publication list. Google Scholar could not be reached on ${syncedOn}.`;
 
   return (
     <Section id="publications">
       <h2 className="section-title">Publications</h2>
+      <p className="mt-2 text-[0.8125rem] leading-relaxed text-[var(--ink-muted)]">
+        {syncNote}
+      </p>
 
       {papers.length > 0 ? (
         <div className="mt-8">

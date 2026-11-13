@@ -131,9 +131,17 @@ export function scholarSearchUrl(title: string): string {
   return `https://scholar.google.com/scholar?q=${encodeURIComponent(`intitle:"${title}"`)}`;
 }
 
-export async function getPublications(): Promise<Publication[]> {
+export type PublicationList = {
+  items: Publication[];
+  source: "google-scholar" | "saved-snapshot";
+  /** ISO timestamp for the build that loaded or fell back from Scholar. */
+  syncedAt: string;
+};
+
+export async function getPublications(): Promise<PublicationList> {
   const collected: Publication[] = [];
   const seen = new Set<string>();
+  const syncedAt = new Date().toISOString();
 
   for (let start = 0; start < 500; start += 100) {
     const html = await fetchScholarPage(start);
@@ -150,8 +158,16 @@ export async function getPublications(): Promise<Publication[]> {
 
   if (collected.length === 0) {
     console.warn("Google Scholar was unavailable. Using the saved publication list.");
-    return sortLikeScholar(fallbackPublications);
+    return {
+      items: sortLikeScholar(fallbackPublications),
+      source: "saved-snapshot",
+      syncedAt,
+    };
   }
   console.log(`Loaded ${collected.length} publications from Google Scholar.`);
-  return sortLikeScholar(collected);
+  return {
+    items: sortLikeScholar(collected),
+    source: "google-scholar",
+    syncedAt,
+  };
 }
