@@ -27,7 +27,7 @@ export const peerReviews: PeerReview[] = [
   },
   {
     id: "review-unpub-results-2026-a",
-    venue: "Results in Engineering",
+    venue: "Results in Engineering (Elsevier)",
     year: 2026,
     role: "Peer reviewer",
     visibility: "unpublished",
