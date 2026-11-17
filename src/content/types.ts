@@ -52,7 +52,7 @@ export type PersonalProject = SampleFlag & {
 
 export type SiteProfile = {
   name: string;
-  tagline: string;
+  tagline?: string;
   email?: string;
   links: { label: string; href: string }[];
 };
